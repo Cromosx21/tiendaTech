@@ -1,22 +1,11 @@
 
 import Image from "next/image";
 import { SearchIcon } from "../ui/Icons";
-import { Anchor, AnchorIcon } from "../ui/Anchors";
-import { use } from "react";
+import Menu from "../ui/Menu";
+import BannerPromotion from "../ui/BannerPromotion";
 
-export default function Navbar() {
-	// Lista de categorías del menu principal
-	// const categories = ["Vuelta a casa","Arma tu PC","Asesórate Online","Zona Gamer","Servicios","Tiendas", "Seguir mi pedido", "Contacto"];
-	const categories: Record<string, string> = {
-		"Vuelta a casa": "/categorias",
-		"Arma tu PC": "/categorias",
-		"Asesórate Online": "/categorias",
-		"Zona Gamer": "/categorias",
-		Servicios: "/categorias",
-		Tiendas: "/categorias",
-		"Seguir mi pedido": "/categorias",
-		Contacto: "/categorias",
-	};
+async function Navbar() {
+	
 
 	return (
 		<>
@@ -55,25 +44,14 @@ export default function Navbar() {
 						</form>
 					</div>
 				</div>
-                <div className=" bg-blue-600 relative">
-
-                    <div id="sub_menu" popover="auto" className="absolute w-screen h-screen bg-[#04040420]">
-                        <div className="bg-gray-100 relative max-w-6xl h-96 top-1/2 mx-auto -translate-y-1/2" >
-                            <p>Categorías de productos </p>
-                        </div>
-                    </div>
-					<nav className="flex flex-row items-center max-w-7xl mx-auto">
-						<AnchorIcon name="Todas las Categorías"  />
-						{Object.keys(categories).map((category) => (
-							<Anchor
-								key={category}
-								name={category}
-								route={categories[category]}
-							/>
-						))}
-					</nav>
+                <div className=" bg-blue-600">
+					<Menu />
 				</div>
+				<BannerPromotion />
 			</div>
 		</>
 	);
 }
+
+
+export default Navbar;
